@@ -18,13 +18,8 @@ public class Battleship {
         this.vertical = r.nextBoolean();
         this.size = r.nextInt(1, 4);
         this.health = this.size;
-        // boolean putShip = false;
-        // do {
-
         this.startRow = r.nextInt(0, 10);
         this.startCol = r.nextInt(0, 10);
-
-        // } while (!putShip);
     }
 
     public Square[][] generateBattleShip(Battleship battleship) {
