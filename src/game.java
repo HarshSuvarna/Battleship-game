@@ -9,7 +9,6 @@ public class game {
 			battleship.generateBattleShip(battleship);
 		}
 		System.out.println(board.toString());
-		System.out.print("\033[2K"); // Erase line content
 
 		Player player1 = new Player("Harsh");
 		Player player2 = new Player("Kurved");
