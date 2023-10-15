@@ -7,9 +7,9 @@ public class Battleship {
     private int startRow;
     private int startCol;
     private boolean vertical;
+    private Square[][] board;
     private int[] occupiedRows = new int[10];
     private int[] occupiesColumns = new int[10];
-    private Square[][] board;
     private int[][] shipLocation = new int[3][2];
 
     public Battleship(Square[][] board) {
