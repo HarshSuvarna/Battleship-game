@@ -8,12 +8,8 @@ public class Battleship {
     private int startCol;
     private boolean vertical;
     private Square[][] board;
-    private static int[] occupiedSquares = new int[10];
-    private static int[] occupiesColumns = new int[10];
-    private int[][] shipLocation = new int[3][2];
     private boolean placeShipSomewhereElse = true;
     private boolean cantPlaceShip = false;
-    private static int ships = 0;
 
     public Battleship(Square[][] board) {
         this.board = board;
