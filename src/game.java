@@ -4,7 +4,8 @@ public class game {
 	public static void main(String[] args) {
 		Board board = new Board(10, 10);
 		Square[][] newBoard = board.generateBoard();
-		for (int i = 0; i < 5; i++) {
+		int noOfBattleShips = 5;
+		for (int i = 0; i < noOfBattleShips; i++) {
 			Battleship battleship = new Battleship(newBoard);
 			battleship.generateBattleShip(battleship);
 		}
@@ -33,7 +34,7 @@ public class game {
 			}
 			System.out.println(board.toString());
 
-			game = Player.endgameLogic(player1, player2);
+			game = Player.endgameLogic(player1, player2, noOfBattleShips);
 
 		} while (game);
 		s.close();

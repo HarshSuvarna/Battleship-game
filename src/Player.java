@@ -50,10 +50,10 @@ public class Player {
         }
     }
 
-    public static boolean endgameLogic(Player player1, Player player2) {
+    public static boolean endgameLogic(Player player1, Player player2, int battleships) {
         int player1Score = player1.getScore();
         int player2Score = player2.getScore();
-        if ((player1Score + player2Score) == 5) {
+        if ((player1Score + player2Score) == battleships) {
             if (player1Score == player2Score) {
                 System.out.println("Game over. Its a tie!");
             } else {
