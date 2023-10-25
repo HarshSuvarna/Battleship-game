@@ -40,7 +40,7 @@ public class Player {
             System.out.print("Enter column: ");
             int col = scanner.nextInt();
             if (row < 0 || row > 9 || col < 0 || col > 9) {
-            return -1;
+                return -1;
             }
             int outCome = board[row][col].playerGame(" X ", player);
             return outCome;
@@ -53,7 +53,7 @@ public class Player {
     public static boolean endgameLogic(Player player1, Player player2) {
         int player1Score = player1.getScore();
         int player2Score = player2.getScore();
-        if ((player1Score + player2Score) == 2) {
+        if ((player1Score + player2Score) == 5) {
             if (player1Score == player2Score) {
                 System.out.println("Game over. Its a tie!");
             } else {
