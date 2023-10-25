@@ -56,7 +56,7 @@ public class Battleship {
                 }
             }
             this.startRow = r.nextInt(0, 10);
-            System.out.println("change: " + startCol);
+            // System.out.println("change: " + startCol);
             this.startCol = r.nextInt(0, 10);
         }
         return this.board;
