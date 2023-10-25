@@ -52,6 +52,7 @@ public class Square {
 	}
 
 	public boolean hasShip() {
+
 		return this.hasShip;
 	}
 }

@@ -12,7 +12,7 @@ public class game {
 		System.out.print("Enter name of player 1: ");
 		String player1Name = s.nextLine();
 		Player player1 = new Player(player1Name);
-		System.out.print("Enter name of player 2");
+		System.out.print("Enter name of player 2: ");
 		String player2Name = s.nextLine();
 		Player player2 = new Player(player2Name);
 		boolean game = true;
