@@ -42,7 +42,7 @@ public class Player {
             if (row < 0 || row > 9 || col < 0 || col > 9) {
                 return -1;
             }
-            int outCome = board[row][col].playerGame(" X ", player);
+            int outCome = board[row][col].playerGame(board[row][col].hasShip() ? " B " : " X ", player);
             return outCome;
 
         } catch (Exception e) {

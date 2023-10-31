@@ -34,13 +34,10 @@ public class Battleship {
             }
             if (!outofBounds) {
                 for (int i = 0; i < this.size; i++) {
-                    System.out.println("in for: " + i);
                     if (this.board[this.startRow + (this.vertical ? i : 0)][this.startCol
                             + (this.vertical ? 0 : i)]
                             .hasShip()) {
-                        System.out.println("in if because this square has a ship" + "\n");
                         cantPlaceShip = true;
-                        System.out.println("cantpalceship true braeking out: " + cantPlaceShip + "\n");
                         break;
                     }
                 }
