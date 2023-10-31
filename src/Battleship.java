@@ -10,6 +10,7 @@ public class Battleship {
     private Square[][] board;
     private boolean placeShipSomewhereElse = true;
     private boolean cantPlaceShip = false;
+    private boolean outofBounds = false;
 
     public Battleship(Square[][] board) {
         this.board = board;
@@ -24,35 +25,35 @@ public class Battleship {
     public Square[][] generateBattleShip(Battleship battleship) {
         Random r = new Random();
         while (placeShipSomewhereElse) {
-            // System.out.println("while----------------------------------------------");
-            for (int i = 0; i < this.size; i++) {
-                // System.out.println("i: " + i);
-                // System.out.println("row: " + this.startRow);
-                // System.out.println("Col: " + this.startCol);
-                // System.out.println("vei: " + this.vertical);
-                // System.out.println((this.vertical ? this.startRow : this.startCol) + i);
-                // if (((this.vertical ? this.startRow : this.startCol) + i > 7)) {
-                // System.out.println("in if beacuse row got somehting");
-                // cantPlaceShip = true;
-                // break;
-                // } else
-                if (this.board[this.startRow + (this.vertical ? i : 0)][this.startCol
-                        + (this.vertical ? 0 : i)]
-                        .hasShip()) {
-                    cantPlaceShip = true;
-                    break;
+            outofBounds = false;
+            cantPlaceShip = false;
+            if (this.startRow + this.size > 9 || this.startCol + this.size > 9) {
+                this.startRow = r.nextInt(0, 10);
+                this.startCol = r.nextInt(0, 10);
+                outofBounds = true;
+            }
+            if (!outofBounds) {
+                for (int i = 0; i < this.size; i++) {
+                    System.out.println("in for: " + i);
+                    if (this.board[this.startRow + (this.vertical ? i : 0)][this.startCol
+                            + (this.vertical ? 0 : i)]
+                            .hasShip()) {
+                        System.out.println("in if because this square has a ship" + "\n");
+                        cantPlaceShip = true;
+                        System.out.println("cantpalceship true braeking out: " + cantPlaceShip + "\n");
+                        break;
+                    }
                 }
             }
-            if (!cantPlaceShip) {
+            if (!cantPlaceShip && !outofBounds) {
                 placeShipSomewhereElse = false;
                 for (int i = 0; i < this.size; i++) {
                     (this.board[this.startRow + (this.vertical ? i : 0)][this.startCol + (this.vertical ? 0 : i)])
-                            .putShip(" * ", battleship);
+                            .putShip(" - ", battleship);
 
                 }
             }
             this.startRow = r.nextInt(0, 10);
-            // System.out.println("change: " + startCol);
             this.startCol = r.nextInt(0, 10);
         }
         return this.board;
