@@ -8,7 +8,7 @@ public class Board {
         this.columns = columns;
     }
 
-    public Square[][] generateBoard() {
+    public Square[][] generateBoard() {// create a 2D matrix of type Square of specified dimensions
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
                 board[i][j] = new Square(" - ");
@@ -17,7 +17,7 @@ public class Board {
         return board;
     }
 
-    public String toString() {
+    public String toString() {// reloading toString method to display the board
         String newBoard = "";
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
