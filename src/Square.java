@@ -37,7 +37,7 @@ public class Square {
 		if (!this.played && this.battleship != null && !this.battleship.getStatus()) {
 			this.played = true;
 			this.battleship.reduceHealth();
-			this.val = " B ";
+			this.val = " X ";
 			if (this.battleship.getHealth() < 1) {
 				// if battleship health is 0, player scores. Battleship sinks. Squarevalue is
 				// turned to B

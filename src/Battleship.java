@@ -55,7 +55,7 @@ public class Battleship {
                 placeShipSomewhereElse = false;
                 for (int i = 0; i < this.size; i++) { // placing the ship
                     (this.board[this.startRow + (this.vertical ? i : 0)][this.startCol + (this.vertical ? 0 : i)])
-                            .putShip(" * ", battleship);
+                            .putShip(" - ", battleship);
 
                 }
             }
