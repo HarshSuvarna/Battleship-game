@@ -34,7 +34,6 @@ public class Player {
         try {
             System.out.println(String.format("%s 's turn",
                     player.getName()));
-            scanner.nextLine();
             System.out.print("Enter row and column with a space in between: ");
             int row = scanner.nextInt(); // getting row value in input
             int col = scanner.nextInt();// getting column value in input
