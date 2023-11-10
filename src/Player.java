@@ -45,6 +45,7 @@ public class Player {
             return outCome;
 
         } catch (Exception e) {
+            scanner.nextLine();
             return -1; // return -1 if anything goes wrong.
         }
     }

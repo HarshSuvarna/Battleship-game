@@ -27,4 +27,11 @@ public class Board {
         }
         return newBoard;
     }
+
+    public void createBattleships(int battleshipCount) {
+        for (int i = 0; i < battleshipCount; i++) { // Calling the generate battleship on the baord
+            Battleship battleship = new Battleship(this.board);
+            battleship.generateBattleShip(battleship);
+        }
+    }
 }
