@@ -5,6 +5,8 @@ public class Player {
     private int score;
     private static String turn = "Player1";
     private static Scanner scanner = new Scanner(System.in); // static scanner to be shared by all the players
+    private static int totalBattleshipCount = Battleship.getTotalShips(); // get total number of battleships on the
+                                                                          // board
 
     public Player(String name) {
         this.name = name;
@@ -32,7 +34,7 @@ public class Player {
 
     public static int playerTurn(Player player, Square[][] board) {
         try {
-            System.out.println(String.format("%s 's turn",
+            System.out.println(String.format("%s's turn",
                     player.getName()));
             System.out.print("Enter row and column with a space in between: ");
             int row = scanner.nextInt(); // getting row value in input
@@ -42,6 +44,10 @@ public class Player {
                 return -1; // return -1 for out of specified bound inputs
             }
             int outCome = board[row][col].playerGame(board[row][col].hasShip() ? " X " : " O ", player);
+            if (outCome == 2) {
+                totalBattleshipCount--; // decrementing battleship count when player sinks a ship
+                System.out.println(String.format("%d Battleships left!", totalBattleshipCount));
+            }
             return outCome;
 
         } catch (Exception e) {
@@ -50,9 +56,10 @@ public class Player {
         }
     }
 
-    public static boolean endgameLogic(Player player1, Player player2, int battleships) {
+    public static boolean endgameLogic(Player player1, Player player2) {
         int player1Score = player1.getScore();
         int player2Score = player2.getScore();
+        int battleships = totalBattleshipCount;
         if ((player1Score + player2Score) == battleships) { // when cumulative score == number of battleships, the game
                                                             // ends
             if (player1Score == player2Score) { // tie if scores are equal

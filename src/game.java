@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-public class game {
+public class Game {
 	public static void main(String[] args) {
 		Board board = new Board(10, 10); // creating a new 10X10 board
 		Square[][] newBoard = board.generateBoard(); // calling the generateBoard method
-		int noOfBattleShips = 5; // Deciding the number of ships in the battleship
-		board.createBattleships(noOfBattleShips);
+		board.createBattleships();
 		Scanner s = new Scanner(System.in);
 		System.out.print("Enter name of player 1: "); // Input Player 1 name
 		String player1Name = s.nextLine();
@@ -33,7 +32,7 @@ public class game {
 			}
 			System.out.println(board.toString());
 
-			game = Player.endgameLogic(player1, player2, noOfBattleShips); // returns a boolean
+			game = Player.endgameLogic(player1, player2); // returns a boolean
 
 		} while (game);
 		s.close();

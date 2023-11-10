@@ -34,6 +34,7 @@ public class Square {
 		// 1. Square is not already played
 		// 2. Battle ship is present in the square
 		// 3. Battleship is not sunk
+		// System.out.println("status: " + this.battleship.getStatus());
 		if (!this.played && this.battleship != null && !this.battleship.getStatus()) {
 			this.played = true;
 			this.battleship.reduceHealth();
@@ -50,7 +51,7 @@ public class Square {
 			return 1; // reuturn 1 indicating the player has hit the ship
 		}
 		this.val = val;
-		System.out.println("That's is a miss!");
+		System.out.println("That is a miss!");
 		return 0; // return 0 indicating the player missed to hit the ship
 	}
 
